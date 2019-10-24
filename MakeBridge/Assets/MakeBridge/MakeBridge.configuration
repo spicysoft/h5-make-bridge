@@ -5,6 +5,9 @@
     "AssetReferences": [],
     "Entities": [{
         "Components": [{
+            "$type": "MakeBridge.GameConfig, MakeBridge",
+            "Bridge": 1
+        }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 7236145343272337782,
             "b": 12492576811673849476
@@ -15,8 +18,6 @@
             "autoSizeToFrame": true,
             "orientation": 0,
             "renderMode": 0
-        }, {
-            "$type": "MakeBridge.GameConfig, MakeBridge"
         }, {
             "$type": "Unity.Tiny.Scenes.Scenes, Unity.Tiny.Scenes",
             "Elements": [{
@@ -45,6 +46,12 @@
                 "StableTypeHash": 12225904944765638307
             }, {
                 "StableTypeHash": 13283380524122567165
+            }, {
+                "StableTypeHash": 7956559227489347480
+            }, {
+                "StableTypeHash": 12183248233370368187
+            }, {
+                "StableTypeHash": 18025733580126102633
             }]
         }, {
             "$type": "Unity.Authoring.Core.ConfigurationTag, Unity.Authoring.Core"

@@ -1,5 +1,6 @@
 using Unity.Entities;
 using Unity.Tiny.Core;
+using Unity.Tiny.Core2D;
 using Unity.Mathematics;
 
 namespace MakeBridge
@@ -21,7 +22,31 @@ namespace MakeBridge
                 return;
             config.RandomBrodgeSystem = false;
 
-            int num = _random.NextInt(3, 11);
+            //int num = _random.NextInt(3, 8);
+            int num = 2;
+            Entities.ForEach((Entity entity, ref BridgeButton bridgeButton, ref Sprite2DRenderer sprite2D) =>
+            {
+
+                sprite2D.color.a = 1;
+
+            });
+
+            Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Sprite2DRenderer sprite2D) =>
+            {
+
+                sprite2D.color.a = 1;
+
+            });
+
+            Entities.ForEach((Entity entity, ref JudgeButton judgeButton, ref Sprite2DRenderer sprite2D) =>
+            {
+
+                sprite2D.color.a = 1;
+
+            });
+
+
+
             config.BridgeSpace = num;
             tinyEnv.SetConfigData(config);
         }

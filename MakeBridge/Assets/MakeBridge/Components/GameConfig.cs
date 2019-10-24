@@ -5,9 +5,15 @@ namespace MakeBridge
     {
         public int Rounds;
         public bool RandomBrodgeSystem;
+        public bool Judge;
+        public bool Anime;
+
+        public int AnimeNum;
 
         public float BridgeSpace;
         public float Bridge;
+
+        public int score;
     }
 }
 

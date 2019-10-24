@@ -39,6 +39,8 @@
                 "z": 1
             }
         }, {
+            "$type": "Unity.Tiny.Core2D.LayerSorting, Unity.Tiny.Core2D"
+        }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
                 "c": "B"
@@ -71,6 +73,8 @@
                 "StableTypeHash": 874803706151837934
             }, {
                 "StableTypeHash": 12932679046359085526
+            }, {
+                "StableTypeHash": 16791256614846730296
             }]
         }]
     }, {
@@ -88,7 +92,9 @@
             "blending": 0
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
-            "Index": 4
+            "Index": 3
+        }, {
+            "$type": "MakeBridge.BridgeSpace, MakeBridge"
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 8755761024694306257,
@@ -112,9 +118,7 @@
             }
         }, {
             "$type": "Unity.Tiny.Core2D.LayerSorting, Unity.Tiny.Core2D",
-            "order": 2
-        }, {
-            "$type": "MakeBridge.BridgeSpace, MakeBridge"
+            "order": 1
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
@@ -150,6 +154,132 @@
                 "StableTypeHash": 16791256614846730296
             }, {
                 "StableTypeHash": 15693199648485979989
+            }]
+        }]
+    }, {
+        "Components": [{
+            "$type": "Unity.Tiny.UIControls.Button, Unity.Tiny.UIControls",
+            "sprite2DRenderer": "97f00b481e534820bb763e7ccc60a14e",
+            "transition": "97f00b481e534820bb763e7ccc60a14e"
+        }, {
+            "$type": "Unity.Tiny.Core2D.Parent, Unity.Tiny.Core2D",
+            "Value": "d928be1f88d74a728dab839bf5ee1e77"
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DRenderer, Unity.Tiny.Sprite2D",
+            "color": {
+                "r": 0.6431373,
+                "g": 0.5392075,
+                "b": 0.2745098
+            },
+            "blending": 0
+        }, {
+            "$type": "Unity.Tiny.UIControls.PointerInteraction, Unity.Tiny.UIControls"
+        }, {
+            "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
+            "Index": 2
+        }, {
+            "$type": "Unity.Tiny.UILayout.RectTransform, Unity.Tiny.UILayout",
+            "anchorMin": {
+                "x": 0.5
+            },
+            "anchorMax": {
+                "x": 0.5
+            },
+            "sizeDelta": {
+                "x": 64,
+                "y": 64
+            },
+            "anchoredPosition": {
+                "x": 200,
+                "y": 100
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }, {
+            "$type": "MakeBridge.JudgeButton, MakeBridge"
+        }, {
+            "$type": "Unity.Entities.EntityGuid, Unity.Entities",
+            "a": 10948263098512001056,
+            "b": 13508052838070133070
+        }, {
+            "$type": "Unity.Tiny.Core2D.Translation, Unity.Tiny.Core2D",
+            "Value": {}
+        }, {
+            "$type": "Unity.Tiny.Core2D.Rotation, Unity.Tiny.Core2D",
+            "Value": {
+                "value": {}
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.NonUniformScale, Unity.Tiny.Core2D",
+            "Value": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+            }
+        }, {
+            "$type": "Unity.Tiny.Core2D.Sprite2DRendererOptions, Unity.Tiny.Sprite2D",
+            "size": {
+                "x": 1,
+                "y": 1
+            },
+            "drawMode": 2
+        }, {
+            "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
+            "Elements": [{
+                "c": "J"
+            }, {
+                "c": "u"
+            }, {
+                "c": "d"
+            }, {
+                "c": "e"
+            }, {
+                "c": "g"
+            }, {
+                "c": "e"
+            }, {
+                "c": "B"
+            }, {
+                "c": "u"
+            }, {
+                "c": "t"
+            }, {
+                "c": "t"
+            }, {
+                "c": "o"
+            }, {
+                "c": "n"
+            }]
+        }, {
+            "$type": "Unity.Authoring.Core.ComponentOrder, Unity.Authoring.Core",
+            "Elements": [{
+                "StableTypeHash": 7960064150805274675
+            }, {
+                "StableTypeHash": 8141980912335510258
+            }, {
+                "StableTypeHash": 12662904853204722592
+            }, {
+                "StableTypeHash": 793987765392955020
+            }, {
+                "StableTypeHash": 266869500686333426
+            }, {
+                "StableTypeHash": 9104342357061045742
+            }, {
+                "StableTypeHash": 874803706151837934
+            }, {
+                "StableTypeHash": 17378348762221180850
+            }, {
+                "StableTypeHash": 5378123052767168278
+            }, {
+                "StableTypeHash": 12932679046359085526
+            }, {
+                "StableTypeHash": 147127668789581756
+            }, {
+                "StableTypeHash": 11301794271907081408
+            }, {
+                "StableTypeHash": 16623519013389271441
             }]
         }]
     }, {
@@ -193,6 +323,8 @@
                 "y": 0.5
             }
         }, {
+            "$type": "MakeBridge.StartButton, MakeBridge"
+        }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 12373625420508056836,
             "b": 10526269147235316834
@@ -218,8 +350,6 @@
                 "y": 1
             },
             "drawMode": 2
-        }, {
-            "$type": "MakeBridge.StartButton, MakeBridge"
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
@@ -405,6 +535,9 @@
                 "y": 0.5
             }
         }, {
+            "$type": "MakeBridge.BridgeButton, MakeBridge",
+            "block": 1
+        }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 16539672481546783309,
             "b": 12683039028718972445
@@ -430,9 +563,6 @@
                 "y": 1
             },
             "drawMode": 2
-        }, {
-            "$type": "MakeBridge.BridgeButton, MakeBridge",
-            "block": 1
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
@@ -504,7 +634,9 @@
             "blending": 0
         }, {
             "$type": "Unity.Authoring.Core.SiblingIndex, Unity.Authoring.Core",
-            "Index": 3
+            "Index": 4
+        }, {
+            "$type": "MakeBridge.BuildeBridge, MakeBridge"
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
             "a": 17755145767268731433,
@@ -527,7 +659,8 @@
                 "z": 1
             }
         }, {
-            "$type": "MakeBridge.BuildeBridge, MakeBridge"
+            "$type": "Unity.Tiny.Core2D.LayerSorting, Unity.Tiny.Core2D",
+            "order": 2
         }, {
             "$type": "Unity.Tiny.Core.EntityName, Unity.Tiny.Core",
             "Elements": [{
@@ -575,6 +708,8 @@
                 "StableTypeHash": 12932679046359085526
             }, {
                 "StableTypeHash": 15104218430607577418
+            }, {
+                "StableTypeHash": 16791256614846730296
             }]
         }]
     }, {

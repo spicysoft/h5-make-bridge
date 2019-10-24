@@ -5,32 +5,36 @@ using Unity.Tiny.UIControls;
 
 namespace MakeBridge
 {
-    public class StartButtonSystem : ComponentSystem
+    public class JudgeButtonSystem : ComponentSystem
     {
         protected override void OnUpdate()
         {
             var tinyEnv = World.TinyEnvironment();
             var config = tinyEnv.GetConfigData<GameConfig>();
-            var startButton = false;
-            Entities.WithAll<StartButton>().ForEach((Entity entity, ref PointerInteraction pointerInteraction, ref Sprite2DRenderer sprite2D) =>
+            var judgeButton = false;
+            Entities.WithAll<JudgeButton>().ForEach((Entity entity, ref PointerInteraction pointerInteraction, ref Sprite2DRenderer sprite2D) =>
             {
                 if (pointerInteraction.clicked)
                 {
                     sprite2D.color.a = 0;
-                    startButton = true;
+                    judgeButton = true;
                     pointerInteraction.clicked = false;
                 }
             });
 
-            if (startButton)
+            if (judgeButton)
             {
 
+                Entities.ForEach((Entity entity, ref BridgeButton bridgeButton, ref Sprite2DRenderer sprite2D) =>
+                {
 
-                config.RandomBrodgeSystem = true;
+                    sprite2D.color.a = 0;
+
+                });
+                config.Judge = true;
                 tinyEnv.SetConfigData(config);
             }
         }
     }
 }
-
 
