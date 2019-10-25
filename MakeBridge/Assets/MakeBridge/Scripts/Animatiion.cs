@@ -9,6 +9,8 @@ namespace MakeBridge
     {
         bool move;
         float speed = 5;
+
+        bool down;
         protected override void OnUpdate()
         {
             var tinyEnv = World.TinyEnvironment();
@@ -16,31 +18,33 @@ namespace MakeBridge
 
             if (!config.Anime)
                 return;
-
             move = true;
-            if (config.AnimeNum == 0)
+
+            Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Translation translation, ref Sprite2DRenderer sprite2D) =>
             {
-                Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Translation translation) =>
+
+                if (config.AnimeNum == 0)
                 {
                     if (move)
                     {
                         translation.Value.y += World.TinyEnvironment().frameDeltaTime * speed;
                     }
-                    if(translation.Value.y >= 3)
+                    if (translation.Value.y >= 3)
                     {
                         translation.Value.y = 3;
                         move = false;
                         config.Anime = false;
+
+                        Entities.ForEach((Entity _entity, ref NextButton nextButton, ref Sprite2DRenderer _sprite2D) =>
+                        {
+                            _sprite2D.color.a = 1;
+                        });
                     }
+                    tinyEnv.SetConfigData(config);
+                }
 
-                });
 
-                tinyEnv.SetConfigData(config);
-            }
-
-            else if (config.AnimeNum == 1)
-            {
-                Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Translation translation) =>
+                else if (config.AnimeNum == 1)
                 {
                     if (move)
                     {
@@ -48,43 +52,47 @@ namespace MakeBridge
                     }
                     if (translation.Value.y >= 2)
                     {
-                        speed = -4;
+                        speed = -1;
+                        down = true;
                     }
-
-                    if (translation.Value.y <= -12)
+                    if (translation.Value.y <= 1 && down)
                     {
-                        translation.Value.y = -12;
+                        translation.Value.y = 1;
+                        sprite2D.color.a = 0;
                         move = false;
                         config.Anime = false;
+                        down = false;
+                        speed = 5;
+                        Entities.ForEach((Entity _entity, ref RetryButton retryButton, ref Sprite2DRenderer _sprite2D) =>
+                        {
+                            _sprite2D.color.a = 1;
+                        });
                     }
+                    tinyEnv.SetConfigData(config);
+                }
 
-                });
 
-                tinyEnv.SetConfigData(config);
-            }
-
-            else if (config.AnimeNum == 2)
-            {
-                Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Translation translation) =>
+                else if (config.AnimeNum == 2)
                 {
                     if (move)
                     {
                         translation.Value.y += World.TinyEnvironment().frameDeltaTime * speed;
                     }
-                    if (translation.Value.y >= 12)
+                    if (translation.Value.y >= 9)
                     {
-                        translation.Value.y = 12;
+                        translation.Value.y = 9;
+                        sprite2D.color.a = 0;
                         move = false;
                         config.Anime = false;
+
+                        Entities.ForEach((Entity _entity, ref RetryButton retryButton, ref Sprite2DRenderer _sprite2D) =>
+                        {
+                            _sprite2D.color.a = 1;
+                        });
                     }
-
-                });
-
-                tinyEnv.SetConfigData(config);
-            }
-
-
-
+                    tinyEnv.SetConfigData(config);
+                }
+            });
 
         }
     }

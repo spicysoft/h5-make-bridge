@@ -21,9 +21,9 @@ namespace MakeBridge
             if (!config.RandomBrodgeSystem)
                 return;
             config.RandomBrodgeSystem = false;
-
-            //int num = _random.NextInt(3, 8);
-            int num = 2;
+            config.Bridge = 1;
+            int num = _random.NextInt(3, 8);
+            //int num = 2;
             Entities.ForEach((Entity entity, ref BridgeButton bridgeButton, ref Sprite2DRenderer sprite2D) =>
             {
 
@@ -31,8 +31,9 @@ namespace MakeBridge
 
             });
 
-            Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Sprite2DRenderer sprite2D) =>
+            Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Sprite2DRenderer sprite2D, ref Translation translation) =>
             {
+                translation.Value.y = -8;
 
                 sprite2D.color.a = 1;
 

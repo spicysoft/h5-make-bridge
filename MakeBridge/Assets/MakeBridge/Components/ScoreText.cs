@@ -2,9 +2,10 @@ using Unity.Entities;
 
 namespace MakeBridge
 {
-    public struct RetryButton : IComponentData
+    public struct ScoreText : IComponentData
     {
         public bool tes;
     }
 }
+
 

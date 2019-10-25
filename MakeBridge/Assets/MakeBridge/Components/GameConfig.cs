@@ -7,6 +7,9 @@ namespace MakeBridge
         public bool RandomBrodgeSystem;
         public bool Judge;
         public bool Anime;
+        public bool NextRound;
+
+        public bool Retry;
 
         public int AnimeNum;
 
