@@ -17,7 +17,7 @@ namespace MakeBridge
             if(config.BridgeSpace == config.Bridge)
             {
                 config.AnimeNum = 0;
-                config.score++;
+
             }
 
             else if (config.BridgeSpace < config.Bridge)

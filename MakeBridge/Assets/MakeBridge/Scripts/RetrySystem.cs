@@ -21,6 +21,18 @@ namespace MakeBridge
                 sprite2D.color.a = 1;
             });
 
+            Entities.ForEach((Entity _entityB, ref GameOverImage gameOverImage, ref Sprite2DRenderer _sprite2D) =>
+            {
+                _sprite2D.color.a = 0;
+
+            });
+            Entities.ForEach((Entity _entity, ref Human human, ref Translation _translation, ref Sprite2DRenderer _sprite2D) =>
+            {
+                _translation.Value.x = -10;
+                _translation.Value.y = 4.7f;
+                _sprite2D.color.a = 1;
+
+            });
             tinyEnv.SetConfigData(config);
         }
     }

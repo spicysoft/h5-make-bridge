@@ -15,17 +15,22 @@ namespace MakeBridge
                 return;
             config.NextRound = false;
             config.Rounds++;
+            config.score++;
             config.RandomBrodgeSystem = true;
 
 
+            Entities.ForEach((Entity _entity, ref Human human, ref Translation _translation) =>
+            {
+                _translation.Value.x = -10;
 
 
+            });
 
+            Entities.ForEach((Entity _entityB, ref SuccessImage successImage, ref Sprite2DRenderer _sprite2D) =>
+            {
+                _sprite2D.color.a = 0;
 
-
-
-
-
+            });
 
 
             tinyEnv.SetConfigData(config);
