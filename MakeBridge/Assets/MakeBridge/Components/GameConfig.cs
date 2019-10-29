@@ -8,6 +8,7 @@ namespace MakeBridge
         public bool Judge;
         public bool Anime;
         public bool NextRound;
+        public int  difficulty;
 
         public bool Retry;
 
@@ -17,6 +18,7 @@ namespace MakeBridge
         public float Bridge;
 
         public int score;
+        public int BestScore;
     }
 }
 

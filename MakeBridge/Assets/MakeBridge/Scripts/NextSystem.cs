@@ -18,7 +18,16 @@ namespace MakeBridge
             config.score++;
             config.RandomBrodgeSystem = true;
 
+            if (config.Rounds > 5)
+            {
+                config.difficulty = 1;
+            }
+            else if (config.Rounds > 10)
+            {
 
+                config.difficulty = 2;
+
+            }
             Entities.ForEach((Entity _entity, ref Human human, ref Translation _translation) =>
             {
                 _translation.Value.x = -10;
