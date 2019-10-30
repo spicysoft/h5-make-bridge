@@ -8,6 +8,9 @@ namespace MakeBridge
     public class RandomBridgeSystem : ComponentSystem
     {
         private Random _random;
+        int num;
+        int easyBlock = 2;
+        int normalBlock = 1;
         protected override void OnCreate()
         {
             _random = new Random();
@@ -21,15 +24,103 @@ namespace MakeBridge
             if (!config.RandomBrodgeSystem)
                 return;
             config.RandomBrodgeSystem = false;
-            config.Bridge = 1;
-            int num = _random.NextInt(3, 8);
-            //int num = 2;
-            Entities.ForEach((Entity entity, ref BridgeButton bridgeButton, ref Sprite2DRenderer sprite2D) =>
+            config.Bridge = 2;
+
+            switch (config.difficulty)
             {
+                case 0:
 
-                sprite2D.color.a = 1;
 
-            });
+                    Entities.ForEach((DynamicBuffer<Buttons> segments) =>
+                    {
+                        for (int i = 0; i < segments.Length; i++)
+                        {
+                            var sprite2 = EntityManager.GetComponentData<Sprite2DRenderer>(segments[i].entity);
+                            if (i == 0)
+                            {
+                                sprite2.color.a = 1;
+                            }
+                            else
+                            {
+                                sprite2.color.a = 0;
+                            }
+                            EntityManager.SetComponentData<Sprite2DRenderer>(segments[i].entity, sprite2);
+                        }
+
+
+                    });
+
+
+                    num = easyBlock *_random.NextInt(1, 4);
+                    config.BridgeSpace = num;
+
+                    break;
+                case 1:
+
+                    Entities.ForEach((DynamicBuffer<Buttons> segments) =>
+                    {
+                        for (int i = 0; i < segments.Length; i++)
+                        {
+                            var sprite2 = EntityManager.GetComponentData<Sprite2DRenderer>(segments[i].entity);
+                            if (i < 2)
+                            {
+                                sprite2.color.a = 1;
+                            }
+                            else 
+                            {
+                                sprite2.color.a = 0;
+                            }
+                            EntityManager.SetComponentData<Sprite2DRenderer>(segments[i].entity, sprite2);
+                        }
+
+
+                    });
+
+
+
+
+
+                    num = easyBlock * _random.NextInt(1, 4) + normalBlock * _random.NextInt(1, 3);
+                    config.BridgeSpace = num;
+                    break;
+
+                case 2:
+
+
+                    Entities.ForEach((DynamicBuffer<Buttons> segments) =>
+                    {
+                        for (int i = 0; i < segments.Length; i++)
+                        {
+                            var sprite2 = EntityManager.GetComponentData<Sprite2DRenderer>(segments[i].entity);
+                            
+                            
+                                sprite2.color.a = 1;                            
+                          
+                            
+                            EntityManager.SetComponentData<Sprite2DRenderer>(segments[i].entity, sprite2);
+                        }
+
+
+                    });
+                    num = _random.NextInt(3, 7);
+                    config.BridgeSpace = num;
+                    break;
+
+                default:
+
+                    num = _random.NextInt(3, 7);
+                    config.BridgeSpace = num;
+                    break;
+
+            }
+
+            //int num = 2;
+            //Entities.ForEach((Entity entity, ref BridgeButton bridgeButton, ref Sprite2DRenderer sprite2D) =>
+            //{
+
+            //    sprite2D.color.a = 1;
+
+            //});
 
             Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Sprite2DRenderer sprite2D, ref Translation translation) =>
             {
@@ -48,7 +139,7 @@ namespace MakeBridge
 
 
 
-            config.BridgeSpace = num;
+            //config.BridgeSpace = num;
             tinyEnv.SetConfigData(config);
         }
     }

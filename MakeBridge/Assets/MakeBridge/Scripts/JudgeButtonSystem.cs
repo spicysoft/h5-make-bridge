@@ -25,10 +25,19 @@ namespace MakeBridge
             if (judgeButton)
             {
 
-                Entities.ForEach((Entity entity, ref BridgeButton bridgeButton, ref Sprite2DRenderer sprite2D) =>
+                Entities.ForEach((DynamicBuffer<Buttons> segments) =>
                 {
+                    for (int i = 0; i < segments.Length; i++)
+                    {
+                        var sprite2 = EntityManager.GetComponentData<Sprite2DRenderer>(segments[i].entity);
 
-                    sprite2D.color.a = 0;
+
+                        sprite2.color.a = 0;
+
+
+                        EntityManager.SetComponentData<Sprite2DRenderer>(segments[i].entity, sprite2);
+                    }
+
 
                 });
                 config.Judge = true;

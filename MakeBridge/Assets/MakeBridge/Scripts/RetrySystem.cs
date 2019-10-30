@@ -16,6 +16,7 @@ namespace MakeBridge
             config.Retry = false;
             config.score = 0;
             config.Rounds = 0;
+            config.difficulty = 0;
 
             Entities.ForEach((Entity entity, ref StartButton startButton, ref Sprite2DRenderer sprite2D) =>
             {
