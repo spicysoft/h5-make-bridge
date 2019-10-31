@@ -8,9 +8,10 @@ namespace MakeBridge
     public class RandomBridgeSystem : ComponentSystem
     {
         private Random _random;
-        int num;
+        float num;
         int easyBlock = 2;
         int normalBlock = 1;
+        float hardBlock = 0.5f;
         protected override void OnCreate()
         {
             _random = new Random();
@@ -25,7 +26,9 @@ namespace MakeBridge
                 return;
             config.RandomBrodgeSystem = false;
             config.Bridge = 2;
-
+            config.easyBridge = 2;
+            config.normalBridge = 0;
+            config.hardBridge = 0;
             switch (config.difficulty)
             {
                 case 0:
@@ -102,7 +105,8 @@ namespace MakeBridge
 
 
                     });
-                    num = _random.NextInt(3, 7);
+
+                    num = easyBlock * _random.NextInt(1, 4) + normalBlock * _random.NextInt(1, 3) + _random.NextInt(1, 4) + hardBlock * _random.NextInt(1, 4); ;
                     config.BridgeSpace = num;
                     break;
 
@@ -114,13 +118,6 @@ namespace MakeBridge
 
             }
 
-            //int num = 2;
-            //Entities.ForEach((Entity entity, ref BridgeButton bridgeButton, ref Sprite2DRenderer sprite2D) =>
-            //{
-
-            //    sprite2D.color.a = 1;
-
-            //});
 
             Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref Sprite2DRenderer sprite2D, ref Translation translation) =>
             {
@@ -137,9 +134,6 @@ namespace MakeBridge
 
             });
 
-
-
-            //config.BridgeSpace = num;
             tinyEnv.SetConfigData(config);
         }
     }

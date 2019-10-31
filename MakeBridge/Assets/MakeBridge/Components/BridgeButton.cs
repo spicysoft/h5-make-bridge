@@ -7,6 +7,7 @@ namespace MakeBridge
 
         public bool tes;
         public float block;
+        public int difficulty;
     }
 }
 

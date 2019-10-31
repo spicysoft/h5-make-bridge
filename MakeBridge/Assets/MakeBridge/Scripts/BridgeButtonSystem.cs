@@ -17,8 +17,26 @@ namespace MakeBridge
             {
                 if (pointerInteraction.clicked)
                 {
-                    
                     _block = bridge.block;
+
+                    switch (bridge.difficulty)
+                    {
+                        case 0:
+                            config.easyBridge += _block;
+                            break;
+                        case 1:
+                            config.normalBridge += _block;
+                            break;
+                        case 2:
+                            config.hardBridge += _block;
+                            break;
+                        default:
+                            config.easyBridge += 0;
+                            break;
+
+
+                    }
+
                     bridgeButton = true;
                     pointerInteraction.clicked = false;
                 }
@@ -26,6 +44,8 @@ namespace MakeBridge
 
             if (bridgeButton)
             {
+                
+
                 config.Bridge += _block;
                 tinyEnv.SetConfigData(config);
             }

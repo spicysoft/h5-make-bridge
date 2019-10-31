@@ -10,11 +10,17 @@ namespace MakeBridge
         public bool NextRound;
         public int  difficulty;
 
+
         public bool Retry;
 
         public int AnimeNum;
 
         public float BridgeSpace;
+
+
+        public float easyBridge;
+        public float normalBridge;
+        public float hardBridge;
         public float Bridge;
 
         public int score;

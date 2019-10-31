@@ -13,8 +13,38 @@ namespace MakeBridge
 
             Entities.ForEach((Entity entity, ref BuildeBridge buildeBridge, ref NonUniformScale nonUniformScale) =>
             {
+                switch (buildeBridge.difficulty)
+                {
+                    case 0:
 
-                nonUniformScale.Value.x = config.Bridge;
+                        nonUniformScale.Value.x = config.easyBridge;
+
+                        break;
+
+
+                    case 1:
+
+                        nonUniformScale.Value.x = config.easyBridge + config.normalBridge;
+
+                        break;
+
+
+                    case 2:
+
+                        nonUniformScale.Value.x = config.easyBridge + config.normalBridge + config.hardBridge;
+
+                        break;
+
+                }
+
+
+
+
+
+
+
+
+                //nonUniformScale.Value.x = config.Bridge;
 
             });
 

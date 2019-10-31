@@ -18,7 +18,7 @@ namespace MakeBridge
             config.score++;
             config.RandomBrodgeSystem = true;
 
-            if (config.Rounds > 5)
+            if (config.Rounds > 5 && config.Rounds <=10 )
             {
                 config.difficulty = 1;
             }

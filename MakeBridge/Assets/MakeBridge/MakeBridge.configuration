@@ -6,6 +6,8 @@
     "Entities": [{
         "Components": [{
             "$type": "MakeBridge.GameConfig, MakeBridge",
+            "Rounds": 15,
+            "difficulty": 2,
             "Bridge": 1
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
@@ -62,6 +64,10 @@
                 "StableTypeHash": 17145613122493949331
             }, {
                 "StableTypeHash": 8876585655743721933
+            }, {
+                "StableTypeHash": 2384874283759043550
+            }, {
+                "StableTypeHash": 3510446353207688279
             }]
         }, {
             "$type": "Unity.Authoring.Core.ConfigurationTag, Unity.Authoring.Core"
