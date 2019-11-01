@@ -24,7 +24,10 @@ namespace MakeBridge
 
             if (startButton)
             {
-
+                Entities.ForEach((Entity entity, ref Title title, ref Sprite2DRenderer sprite2D) =>
+                {
+                    sprite2D.color.a = 0;
+                });
 
                 config.RandomBrodgeSystem = true;
                 tinyEnv.SetConfigData(config);

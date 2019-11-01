@@ -29,22 +29,38 @@ namespace MakeBridge
             {
 
                 if (config.AnimeNum == 0)
+                {
+                    if (move)
                     {
-                        if (move)
+                        translation.Value.y += World.TinyEnvironment().frameDeltaTime * speed;
+                    }
+                    if (translation.Value.y >= 3)
+                    {
+                        translation.Value.y = 3;
+                        move = false;
+
+                        //var t = translation;
+
+                        Entities.ForEach((DynamicBuffer<Bridges> segments) =>
                         {
-                            translation.Value.y += World.TinyEnvironment().frameDeltaTime * speed;
-                        }
-                        if (translation.Value.y >= 3)
-                        {
-                            translation.Value.y = 3;
-                            move = false;
-
-
-
-
-                            Entities.ForEach((Entity _entity, ref Human human, ref Translation _translation) =>
+                            for (int i = 0; i < segments.Length; i++)
                             {
-                                _translation.Value.x += World.TinyEnvironment().frameDeltaTime * speed;
+
+
+
+                                var _translationB = EntityManager.GetComponentData<Translation>(segments[i].entity);
+
+                                _translationB.Value.y = 3;
+
+
+                                EntityManager.SetComponentData(segments[i].entity, _translationB);
+                            }
+                        });
+
+
+                        Entities.ForEach((Entity _entity, ref Human human, ref Translation _translation) =>
+                            {
+                                _translation.Value.x += World.TinyEnvironment().frameDeltaTime * HumanSpeed;
 
                                 if (_translation.Value.x >= 10)
                                 {
@@ -67,27 +83,50 @@ namespace MakeBridge
 
                             });
 
-                        }
-
-                        tinyEnv.SetConfigData(config);
                     }
 
+                    tinyEnv.SetConfigData(config);
+                }
 
-                    else if (config.AnimeNum == 1)
+                //////////////////////////////////////////////////
+
+
+                else if (config.AnimeNum == 1)
+                {
+                    if (move)
                     {
-                        if (move)
+                        translation.Value.y += World.TinyEnvironment().frameDeltaTime * speed;
+
+                        var t = translation;
+
+                        Entities.ForEach((DynamicBuffer<Bridges> segments) =>
                         {
-                            translation.Value.y += World.TinyEnvironment().frameDeltaTime * speed;
-                        }
-                        if (translation.Value.y >= 2)
-                        {
-                            speed = -1;
-                            down = true;
-                        }
-                        if (translation.Value.y <= 1 && down)
+                            for (int i = 0; i < segments.Length; i++)
+                            {
+
+
+                                var _translation = EntityManager.GetComponentData<Translation>(segments[i].entity);
+
+                                _translation.Value.y = t.Value.y;
+
+
+                                EntityManager.SetComponentData(segments[i].entity, _translation);
+                            }
+                        });
+
+
+                    }
+
+                    if (translation.Value.y >= 2)
+                    {
+                        speed = -1;
+                        down = true;
+
+
+                    }
+                    if (translation.Value.y <= 1 && down)
                         {
                             translation.Value.y = 1;
-
 
                         Entities.ForEach((DynamicBuffer<Bridges> segments) =>
                         {
@@ -101,15 +140,16 @@ namespace MakeBridge
                                 EntityManager.SetComponentData(segments[i].entity, _sprite2D);
                                 EntityManager.SetComponentData(segments[i].entity, _translation);
                             }
+
                         });
 
 
                         move = false;
-                            down = false;
+                        down = false;
 
-                            humanMove = true;
+                        humanMove = true;
 
-                        }
+                    }
 
                         if (humanMove)
                         {
@@ -156,6 +196,8 @@ namespace MakeBridge
                         tinyEnv.SetConfigData(config);
                     }
 
+                ///////////////////////////////////////////////
+
 
                     else if (config.AnimeNum == 2)
                     {
@@ -167,7 +209,7 @@ namespace MakeBridge
                         {
                             translation.Value.y = 9;
 
-
+                        var t = translation;
                         Entities.ForEach((DynamicBuffer<Bridges> segments) =>
                         {
                             for (int i = 0; i < segments.Length; i++)
@@ -176,6 +218,8 @@ namespace MakeBridge
 
 
                                 var _translation = EntityManager.GetComponentData<Translation>(segments[i].entity);
+                                _translation.Value.y = t.Value.y;
+
                                 _sprite2D.color.a = 0;
                                 EntityManager.SetComponentData(segments[i].entity, _sprite2D);
                                 EntityManager.SetComponentData(segments[i].entity, _translation);

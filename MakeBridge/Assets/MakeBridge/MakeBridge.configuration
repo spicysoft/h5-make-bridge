@@ -6,8 +6,6 @@
     "Entities": [{
         "Components": [{
             "$type": "MakeBridge.GameConfig, MakeBridge",
-            "Rounds": 15,
-            "difficulty": 2,
             "Bridge": 1
         }, {
             "$type": "Unity.Entities.EntityGuid, Unity.Entities",
